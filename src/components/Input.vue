@@ -13,9 +13,14 @@
 </script>
 
 <template>
-  <input :placeholder="placeholder" :value="modelValue" @input="changeInput" />
+  <input class="input" :placeholder="placeholder" :value="modelValue" @input="changeInput" />
 </template>
 
 <style scoped>
-
+  .input {
+    border: 1px solid mediumpurple;
+    padding: 12px 24px;
+    border-radius: 8px;
+    outline: none;
+  }
 </style>

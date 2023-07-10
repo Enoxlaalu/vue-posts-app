@@ -13,7 +13,7 @@ const closeModal = (e) => {
 
 <template>
   <div class="overlay" :class="{ opened }" @click="closeModal">
-    <div class="modal">
+    <div class="modal" :class="$attrs.class">
       <slot></slot>
     </div>
   </div>

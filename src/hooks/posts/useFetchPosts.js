@@ -1,4 +1,4 @@
-import {onMounted, ref} from "vue";
+import {onMounted, ref, watch} from "vue";
 
 export default () => {
     const posts = ref([])
@@ -27,9 +27,18 @@ export default () => {
         loading.value = false
     }
 
+    const deletePost = async (id) => {
+        const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+            method: 'DELETE',
+        })
+
+        posts.value = posts.value.filter(p => p.id !== id)
+    }
+
     return {
         posts,
         loading,
-        addPost
+        addPost,
+        deletePost
     }
 }
